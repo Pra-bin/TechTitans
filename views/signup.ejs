@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/head') %>
+        <link rel="stylesheet" href="/assets/style/index.css">
+        <link rel="stylesheet" href="/assets/style/signup.css">
+</head>
+
+<body>
+    <div class="background">
+        <div class="circles" id="circle1"></div>
+        <div class="circles" id="circle2"></div>
+        <div class="circles" id="circle3"></div>
+        <div class="circles" id="circle4"></div>
+    </div>
+    <%- include('partials/navbar') %>
+        <div class="container">
+            <div class="content">
+                <div class="content-wrapper">
+                    <div class="form_div">
+                        <div class="signup__form">
+                            <h1 class="signup__title">Sign Up</h1>
+                            <% if (locals.error) { %>
+                                <div id="alert-container" class="alert alert-danger mb-4 alert-container" role="alert">
+                                    <div class="alert-content">
+                                        <%= locals.error %>
+                                    </div>
+                                    <button type="button" id="btn-closeid" class="btn-close"></button>
+                                </div>
+
+                                <% } %>
+
+                                    <% if (locals.success) { %>
+                                        <div id="alert-container" class="alert alert-success mb-4 alert-container"
+                                            role="alert">
+                                            <div class="alert-content">
+                                                <%= locals.success %>
+                                            </div>
+                                            <button type="button" id="btn-closeid" class="btn-close"></button>
+                                        </div>
+
+                                        <% } %>
+
+                                            <form action="/signup" method="POST">
+
+                                                <div class="signup__content">
+                                                    <div class="signup__box">
+                                                        <i class="ri-user-3-line signup__icon"></i>
+
+                                                        <div class="signup__box-input">
+                                                            <input type="text" class="signup__input" id="signup-name"
+                                                                value="" name="fullName" placeholder=" " />
+                                                            <label for="signup-name" class="signup__label">Full
+                                                                Name</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="signup__box">
+                                                        <i class="ri-mail-line"></i>
+
+                                                        <div class="signup__box-input">
+                                                            <input type="email" class="signup__input" value=""
+                                                                id="signup-email" name="email" placeholder=" " />
+                                                            <label for="signup-email"
+                                                                class="signup__label">Email</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="signup__box">
+                                                        <i class="ri-lock-2-line signup__icon"></i>
+
+                                                        <div class="signup__box-input">
+                                                            <input type="password" class="signup__input password"
+                                                                value="" id="signup-pass" name="password"
+                                                                placeholder=" " />
+                                                            <label for="signup-pass"
+                                                                class="signup__label">Password</label>
+                                                            <i class="ri-eye-off-line signup__eye" id="signup-eye"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button type="submit" class="signup__button">signup</button>
+                                            </form>
+                                            <p class="signup__register">
+                                                Already have an account? <a href="/signin">Log In</a>
+
+                                            </p>
+                        </div>
+                    </div>
+                    <div class="join">
+                        <h1>Join Our</h1>
+                        <h1>Community.</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include('./partials/script') %>
+</body>
+
+</html>

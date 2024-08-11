@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <div class="img-cover"><img src="/assets/images/logo.png" alt=""></div>
+        </a>
+        <button class="navbar-toggler ms-4" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-lg-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/course">Course</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/quiz">Quiz</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/community">Create Room</a>
+                </li>
+            </ul>
+            <div class="header-buttons">
+                <% if (!locals.user) { %>
+                    <a href="/signin" class="header-signup">Log In</a>
+                    <a href="/signup" class="header-signin">Sign Up</a>
+                    <% } %>
+                        <% if (locals.user) { %>
+                            <a href="/profile" class="header-signin">Profile</a>
+                            <a href="/signout" class="header-signup">Log Out</a>
+                            <% } %>
+
+
+
+            </div>
+        </div>
+
+    </div>
+</nav>

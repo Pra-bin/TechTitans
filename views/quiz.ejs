@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/head') %>
+
+        <link rel="stylesheet" href="/assets/style/quiz.css">
+
+</head>
+
+<body>
+    <div class="d-flex align-items-center justify-content-center h">
+        <div class="quiz-container" id="quiz-container">
+            <header id="quiz-header">
+                <span id="question-number">1/10</span>
+                <span id="score">Score: 0</span>
+            </header>
+            <div class="progress-container" id="progress-bar-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+
+            <main id="quiz-main">
+
+                <script>
+                    // let answerSelected = [];
+                    // let currentQuestionNumber = 1;
+
+                    // function handleClick(value, index) {
+                    //     console.log(index);
+
+                    //     // Check if there is an existing answer for the current index
+                    //     const existingIndex = answerSelected.findIndex(answer => answer.index === index);
+
+                    //     if (existingIndex !== -1) {
+                    //         // Remove the previous answer for this index
+                    //         answerSelected.splice(existingIndex, 1);
+                    //     }
+
+                    //     // Add the new answer for this index
+                    //     answerSelected.push({ value, index });
+
+                    //     console.log(answerSelected);
+                    // }
+                </script>
+
+                <div id="quize-question-collection">
+
+                    <% let index=0; questionCollection.forEach((question,index)=> {
+                        // console.log(index);
+
+
+                        %>
+                        <div class="quize-question">
+                            <h2 id="question-text">
+                                <%= question.title %>
+                            </h2>
+                            <div class="options">
+                                <% question.options.forEach(option=> { %>
+                                    <label>
+                                        <input type="radio" name="answer" value="<%= option %>">
+                                        <span>
+                                            <%= option %>
+                                        </span>
+                                    </label>
+                                    <% }) %>
+                            </div>
+                        </div>
+                        <% }) %>
+                </div>
+            </main>
+            <footer id="quiz-footer">
+                <button id="next-button" onclick="">Continue</button>
+            </footer>
+        </div>
+        <div class="scoreboard-container" id="scoreboard-container" style="display: none;">
+            <a href="/"><button id="restart-button">Return Back</button></a>
+        </div>
+    </div>
+    <script src="assets/script/quiz.js"></script>
+</body>
+
+</html>
